@@ -4,9 +4,9 @@ import App from './App';
 
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import manageLogin from './reducers/manageLogin'
 
-
-const store = createStore(manageLogin)
+const store = createStore(manageLogin, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>
