@@ -6,6 +6,7 @@ class BooksContainer extends Component {
         return (
             <div>
                 < Books />
+                {/* search GoogleBooks */}
             </div>
         );
     }
