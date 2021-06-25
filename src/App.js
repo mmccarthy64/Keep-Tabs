@@ -2,6 +2,8 @@ import BooksContainer from "./containers/BooksContainer";
 import NavBar from "./components/NavBar";
 import {
   BrowserRouter as Router,
+  Switch, 
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -9,7 +11,10 @@ function App() {
     <div className="App">
       < Router >
         <NavBar />
-        < BooksContainer />
+        <Route exact path='/library'>
+          < BooksContainer />
+        </Route>
+        
         {/* news */}
       </Router>
     </div>
