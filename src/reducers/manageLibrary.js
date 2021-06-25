@@ -1,4 +1,4 @@
-export default function manageLogin( state = [], action ){
+export default function manageLibrary( state = { books: [] }, action ){
     switch(action.type){
         default:
             return state
