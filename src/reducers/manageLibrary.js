@@ -7,7 +7,7 @@ export default function manageLibrary( state = { books: [], reviews: [] }, actio
                 books: [ ...state.books, book ]
             }
         case 'GET_BOOKS':
-            const books = action.payload.data
+            const books = action.payload
             return {
                 ...state,
                 books: [...state.books, ...books]

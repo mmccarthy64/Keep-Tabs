@@ -5,6 +5,23 @@ export const addBook = bookObj => {
     }
 }
 
+export const createBook = book => {
+    return (dispatch) => {
+        fetch('http://localhost:3001/books', {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({book})
+        })
+            .then(resp => resp.json())
+            .then(book => {
+                dispatch(addBook(book))
+            })
+    }
+}
+
 export const getBooks = () => {
     return (dispatch) => {
         fetch('http://localhost:3001/books')

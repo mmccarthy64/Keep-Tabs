@@ -6,7 +6,6 @@ class Book extends Component {
         const { title, author, page_count, image } = this.props
         return (
             <div>
-
                 <div className="card card-inverse card-success card-primary mb-3 text-center">
                     <div className="card-block">
                         <blockquote className="card-blockquote">
