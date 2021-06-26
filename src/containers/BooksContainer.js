@@ -3,9 +3,14 @@ import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
-import { addBook } from '../actions/books';
+import { addBook, getBooks } from '../actions/books';
 
 class BooksContainer extends Component {
+
+    componentDidMount(){
+
+    }
+
     render() {
         return (
             <div>
@@ -28,7 +33,8 @@ class BooksContainer extends Component {
 const mapStateToProps = state => ({ books: state.books })
 
 const mapDispatchToProps = dispatch => ({
-    addBook: book => dispatch(addBook(book))
+    addBook: book => dispatch(addBook(book)),
+    getBooks: books => dispatch(getBooks(books))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksContainer);

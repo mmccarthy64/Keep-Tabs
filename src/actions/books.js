@@ -6,8 +6,10 @@ export const addBook = bookObj => {
 }
 
 export const getBooks = () => {
-    return {
-        type: 'GET_BOOKS',
-        payload: booksObj
-    }
+    
+    fetch('http://localhost:3001/books')
+        .then(resp => resp.json())
+        .then(books => {
+            
+        })
 }
