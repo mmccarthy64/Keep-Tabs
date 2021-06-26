@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
+import { connect } from 'react-redux';
 
 class BooksContainer extends Component {
     render() {
