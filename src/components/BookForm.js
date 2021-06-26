@@ -12,6 +12,12 @@ class BookForm extends Component {
     handleOnSubmit = e => {
         e.preventDefault()
         this.props.addBook(this.state)
+        this.setState({
+            title: '',
+            author: '',
+            page_count: 0,
+            image: ''
+        })
     }
 
     handleOnChange = e => {
