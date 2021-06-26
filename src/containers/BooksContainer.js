@@ -3,6 +3,7 @@ import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
+import { addBook } from '../actions/books';
 
 class BooksContainer extends Component {
     render() {
@@ -27,7 +28,7 @@ class BooksContainer extends Component {
 const mapStateToProps = state => ({ books: state.books })
 
 const mapDispatchToProps = dispatch => ({
-    addBook: book => dispatch({ type: 'ADD_BOOK', payload: book })
+    addBook: book => dispatch(addBook(book))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksContainer);
