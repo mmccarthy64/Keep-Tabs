@@ -5,10 +5,10 @@ class Books extends Component {
     render() {
         const books = this.props.books.map( book => 
             <Book key={book.id}
-                title={book.attributes.title}
-                author={book.attributes.author}
-                page_count={book.attributes.page_count}
-                image={book.attributes.image}
+                title={book.title}
+                author={book.author}
+                page_count={book.page_count}
+                image={book.image}
             />)
         return (
             <div>
