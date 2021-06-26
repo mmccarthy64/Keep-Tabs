@@ -11,9 +11,7 @@ class BookForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        this.setState({
-
-        })
+        this.props.addBook(this.state)
     }
 
     handleOnChange = e => {
