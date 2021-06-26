@@ -13,7 +13,6 @@ class App extends Component{
     this.props.getBooks()
   }
   render(){
-    console.log(this.props)
     return (
       <div className="App">
         < Router >

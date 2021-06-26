@@ -1,19 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { Navbar} from 'react-bootstrap';
 
 const NavBar = () => {
     return (
-        <div id='nav-bar'>
-            <Link to='/library'>
-                <h1 id='library'>Library</h1>
-            </Link>
-            <Link to='/search'>
-                <h1 id='search'>Search for Books</h1>
-            </Link>
-            <Link to='/new'>
-                <h1 id='book-form'>Add a Book</h1>
-            </Link>
-        </div>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand><h2>Keep Tabs</h2></Navbar.Brand>
+                <Link to='/library'><h2>Library</h2></Link>
+                <Link to='/search'><h2>Search</h2></Link>
+                <Link to='/books/new'><h2>Add New Book</h2></Link>
+        </Navbar>
     );
 }
 

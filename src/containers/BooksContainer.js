@@ -13,10 +13,10 @@ class BooksContainer extends Component {
                     <Route exact path='/library'>
                         < Books books={this.props.books} />
                     </Route>
-                    <Route exact path='/new'>
+                    <Route path='/books/new'>
                         < BookForm createBook={this.props.createBook} />
                     </Route>
-                    <Route exact path='/search'>
+                    <Route path='/search'>
                         {/* search GoogleBooks */}
                     </Route>
                 </Switch>

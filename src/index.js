@@ -7,6 +7,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import manageLibrary from './reducers/manageLibrary'
 import thunk from 'redux-thunk';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 const store = createStore(manageLibrary, compose(applyMiddleware(thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
 
 ReactDOM.render(
