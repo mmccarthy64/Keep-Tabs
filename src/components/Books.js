@@ -11,9 +11,9 @@ class Books extends Component {
                 image={book.image}
             />)
         return (
-            <div>
+            <div style={{display: 'grid'}}>
                 <h1>Library</h1>
-                <div>
+                <div style={{ display: 'flex', flexDirection: 'row'}}>
                     {books}
                 </div>
             </div>
