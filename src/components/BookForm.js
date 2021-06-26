@@ -17,7 +17,10 @@ class BookForm extends Component {
     }
 
     handleOnChange = e => {
-        
+        const { name, value } = e.target
+        this.setState({
+            [name]: value 
+        })
     }
 
     render() {
@@ -49,7 +52,7 @@ class BookForm extends Component {
                         <label htmlFor='page_count'>Page Count</label>
                         <div>
                             <input
-                                type='text'
+                                type='number'
                                 name='page_count'
                                 value={this.state.page_count}
                                 onChange={this.handleOnChange} />
@@ -61,7 +64,7 @@ class BookForm extends Component {
                             <input
                                 type='text'
                                 name='image'
-                                valu={this.state.image}
+                                value={this.state.image}
                                 onChange={this.handleOnChange} />
                         </div>
                     </div>
