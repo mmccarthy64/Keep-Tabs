@@ -9,7 +9,7 @@ export const createBook = book => {
     return (dispatch) => {
         fetch('http://localhost:3001/books', {
             method: 'POST',
-            header: {
+            headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
