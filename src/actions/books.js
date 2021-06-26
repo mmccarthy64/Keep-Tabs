@@ -6,10 +6,14 @@ export const addBook = bookObj => {
 }
 
 export const getBooks = () => {
-    
-    fetch('http://localhost:3001/books')
-        .then(resp => resp.json())
-        .then(books => {
-            console.log(books)
-        })
+    return (dispatch) => {
+        fetch('http://localhost:3001/books')
+            .then(resp => resp.json())
+            .then(books => {
+                dispatch({
+                    type: 'GET_BOOKS',
+                    payload: books
+                })
+            })
+    }
 }

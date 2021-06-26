@@ -16,7 +16,7 @@ class BooksContainer extends Component {
             <div>
                 <Switch>
                     <Route exact path='/library'>
-                        < Books />
+                        < Books books={this.props.books} />
                     </Route>
                     <Route exact path='/new'>
                         < BookForm addBook={this.props.addBook} />
