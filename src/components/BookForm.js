@@ -66,8 +66,9 @@ class BookForm extends Component {
                                 onChange={this.handleOnChange} />
                         </div>
                     </div>
+                        <br/>
                     <div>
-                        <button type='submit' />
+                        <button type='submit'>Submit</button>
                     </div>
                 </form>
             </div>

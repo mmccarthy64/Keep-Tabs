@@ -12,7 +12,7 @@ class BooksContainer extends Component {
                         < Books />
                     </Route>
                     <Route exact path='/new'>
-                        < BookForm />
+                        < BookForm addBook={this.props.addBook} />
                     </Route>
                     <Route exact path='/search'>
                         {/* search GoogleBooks */}
@@ -23,4 +23,10 @@ class BooksContainer extends Component {
     }
 }
 
-export default BooksContainer;
+const mapStateToProps = state => ({ books: state.books })
+
+const mapDispatchToProps = dispatch => ({
+    addBook: book => dispatch({ type: 'ADD_BOOK', book })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BooksContainer);
