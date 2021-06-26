@@ -11,10 +11,7 @@ function App() {
     <div className="App">
       < Router >
         <NavBar />
-        <Route exact path='/library'>
-          < BooksContainer />
-        </Route>
-        
+        < BooksContainer />
         {/* news */}
       </Router>
     </div>
