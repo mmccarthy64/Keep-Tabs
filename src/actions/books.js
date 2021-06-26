@@ -10,6 +10,6 @@ export const getBooks = () => {
     fetch('http://localhost:3001/books')
         .then(resp => resp.json())
         .then(books => {
-            
+            console.log(books)
         })
 }

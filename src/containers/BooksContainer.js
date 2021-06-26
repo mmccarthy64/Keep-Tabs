@@ -8,7 +8,7 @@ import { addBook, getBooks } from '../actions/books';
 class BooksContainer extends Component {
 
     componentDidMount(){
-
+        this.props.getBooks()
     }
 
     render() {
