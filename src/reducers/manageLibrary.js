@@ -1,9 +1,7 @@
-import { uuid } from "assert-plus"
-
 export default function manageLibrary( state = { books: [], reviews: [] }, action ){
+    const book = action.payload
     switch(action.type){
         case 'ADD_BOOK':
-            const book = action.payload 
             return {
                 ...state,
                 books: [ ...state.books, book ]
@@ -11,7 +9,7 @@ export default function manageLibrary( state = { books: [], reviews: [] }, actio
         case 'GET_BOOKS':
             return {
                 ...state,
-                books: [...state.books, action.payload]
+                books: [...state.books, ...book] // book === books seed data
             }
         default:
             return state
