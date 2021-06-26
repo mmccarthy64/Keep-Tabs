@@ -27,7 +27,7 @@ class BooksContainer extends Component {
 const mapStateToProps = state => ({ books: state.books })
 
 const mapDispatchToProps = dispatch => ({
-    addBook: book => dispatch({ type: 'ADD_BOOK', book })
+    addBook: book => dispatch({ type: 'ADD_BOOK', payload: book })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksContainer);
