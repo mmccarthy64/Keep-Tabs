@@ -5,6 +5,16 @@ export const searchGoogle = (search) => {
 }
 
 export const renderGoogleResults = results => {
-    const books = results.items[0].volumeInfo
-    console.log(books)
+    const bookResults = results.items
+    const booksSearchResults = []
+    for (let i = 0; i < bookResults.length; i++){
+        let attributes = bookResults[i].volumeInfo
+        booksSearchResults.push({ 
+            title: attributes.title,
+            author: attributes.authors,
+            page_count: attributes.pageCount,
+            image: attributes.imageLinks.thumbnail
+        })
+    }
+    console.log(booksSearchResults)
 }
