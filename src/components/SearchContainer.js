@@ -15,8 +15,4 @@ class SearchContainer extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    dispatchSearch: resultsObj => dispatch(loadGoogleResults(resultsObj))
-})
-
-export default connect(null, mapDispatchToProps)(SearchContainer);
+export default SearchContainer;

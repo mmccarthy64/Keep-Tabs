@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { createBook, deleteBook, getBooks } from './actions/books';
+import { createBook, deleteBook, getBooks, loadGoogleResults } from './actions/books';
 
 class App extends Component{
 
@@ -17,7 +17,11 @@ class App extends Component{
       <div className="App">
         < Router >
           <NavBar />
-          < BooksContainer createBook={this.props.createBook} books={this.props.books} deleteBook={this.props.deleteBook}/>
+          < BooksContainer
+            createBook={this.props.createBook}
+            books={this.props.books}
+            deleteBook={this.props.deleteBook}
+            dispatchSearch={this.props.dispatchSearch}/>
           {/* news */}
         </Router>
       </div>
@@ -25,12 +29,13 @@ class App extends Component{
   }
 }
 
-const mapStateToProps = state => ({ books: state.books })
+const mapStateToProps = state => ({ books: state.books, searchResults: state.searchResults })
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),
   getBooks: books => dispatch(getBooks(books)),
-  deleteBook: id => dispatch(deleteBook(id))
+  deleteBook: id => dispatch(deleteBook(id)),
+  // dispatchSearch: payload => dispatch(loadGoogleResults(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
