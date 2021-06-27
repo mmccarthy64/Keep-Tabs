@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchResults from './SearchResults';
 import { Button } from 'react-bootstrap';
 
-class Search extends Component {
+class SearchContainer extends Component {
     render() {
         return (
             <div style={{ textAlign: 'center' }}>
@@ -14,4 +14,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default SearchContainer;

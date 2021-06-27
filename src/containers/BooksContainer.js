@@ -3,7 +3,7 @@ import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
-import Search from '../components/Search';
+import SearchContainer from '../components/SearchContainer';
 
 class BooksContainer extends Component {
 
@@ -18,7 +18,7 @@ class BooksContainer extends Component {
                         < BookForm createBook={this.props.createBook} />
                     </Route>
                     <Route path='/search'>
-                        <Search />
+                        <SearchContainer />
                     </Route>
                 </Switch>
             </div>
