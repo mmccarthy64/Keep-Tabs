@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 import { connect } from 'react-redux';
+import { loadGoogleResults } from '../actions/books';
 
 class SearchContainer extends Component {
     render() {
         return (
             <div style={{ textAlign: 'center' }}>
-                <SearchForm />
+                <SearchForm dispatchSearch={this.props.dispatchSearch}/>
                 <SearchResults />
             </div>
         );
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    dispatchSearch: resultsObj => dispatch(loadGoogleResults(resultsObj))
+})
 
-export default connect()(SearchContainer);
+export default connect(null, mapDispatchToProps)(SearchContainer);

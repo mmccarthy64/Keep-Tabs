@@ -18,6 +18,5 @@ const mapGoogleResults = results => {
             image: attributes.imageLinks.thumbnail
         })
     }
-    loadGoogleResults(booksSearchResults)
-    console.log(booksSearchResults)
+    return booksSearchResults
 }

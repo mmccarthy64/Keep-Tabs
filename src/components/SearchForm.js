@@ -16,7 +16,8 @@ class SearchForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        searchGoogle(this.state.search)
+        const booksObj = searchGoogle(this.state.search)
+        this.props.dispatchSearch(booksObj)
         this.setState({
             search: ''
         })

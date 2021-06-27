@@ -21,10 +21,10 @@ export default function manageLibrary( state = { books: [], searchResults: [] },
             }
         case 'LOAD_SEARCH':
             const results = action.payload
-            console.log(results)
+            console.log("results")
             return {
                 ...state,
-                searchResults: [ ...results]
+                searchResults: [ ...state.searchResults, ...results]
             }
         default:
             return state
