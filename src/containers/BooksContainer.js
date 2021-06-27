@@ -3,6 +3,7 @@ import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
+import { deleteBook } from '../actions/books';
 
 class BooksContainer extends Component {
 
@@ -11,7 +12,7 @@ class BooksContainer extends Component {
             <div>
                 <Switch>
                     <Route exact path='/library'>
-                        < Books books={this.props.books} />
+                        < Books books={this.props.books} deleteBook={this.props.deleteBook} />
                     </Route>
                     <Route path='/books/new'>
                         < BookForm createBook={this.props.createBook} />
@@ -25,4 +26,8 @@ class BooksContainer extends Component {
     }
 }
 
-export default connect()(BooksContainer);
+const mapDispatchToProps = dispatch => {
+    deleteBook: id => dispatch(deleteBook(id))
+}
+
+export default connect(null, mapDispatchToProps)(BooksContainer);

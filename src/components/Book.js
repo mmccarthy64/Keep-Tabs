@@ -5,7 +5,7 @@ import './Book.css'
 class Book extends Component {
 
     handleOnClick = () => {
-
+        this.props.deleteBook(this.props.book.id)
     }
  
     render() {

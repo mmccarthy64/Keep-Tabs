@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { createBook, getBooks } from './actions/books';
+import { createBook, deleteBook, getBooks } from './actions/books';
 
 class App extends Component{
 
@@ -29,7 +29,8 @@ const mapStateToProps = state => ({ books: state.books })
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),
-  getBooks: books => dispatch(getBooks(books))
+  getBooks: books => dispatch(getBooks(books)),
+  // deleteBook: id => dispatch(deleteBook)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
