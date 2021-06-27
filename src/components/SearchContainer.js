@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchResults from './SearchResults';
 import { Button, Form, Card } from 'react-bootstrap';
+import { searchGoogle } from './GoogleBooks';
 
 class SearchContainer extends Component {
 
@@ -17,7 +18,7 @@ class SearchContainer extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        this.props.search(this.state.search)
+        searchGoogle(this.state.search)
     }
     render() {
         return (

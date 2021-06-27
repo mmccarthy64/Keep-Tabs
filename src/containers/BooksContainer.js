@@ -18,7 +18,7 @@ class BooksContainer extends Component {
                         < BookForm createBook={this.props.createBook} />
                     </Route>
                     <Route path='/search'>
-                        <SearchContainer search={this.props.search} />
+                        <SearchContainer />
                     </Route>
                 </Switch>
             </div>
