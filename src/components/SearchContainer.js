@@ -3,18 +3,28 @@ import SearchResults from './SearchResults';
 import { Button, Form, Card } from 'react-bootstrap';
 
 class SearchContainer extends Component {
-    
+
+    state = {
+        search: ''
+    }
+
+    handleOnChange = e => {
+        const { name, value } = e.target
+        this.setState({
+            [name]: value
+        }, console.log(value))
+    }
     render() {
         return (
             <div style={{ textAlign: 'center' }}>
                 <Card>
                     <Card.Body>
                         <h1 >Search Google Books</h1>
-                        <Form>
+                        <Form onSubmit={this.handleOnSubmit}>
                             <Form.Group  controlId='formSearch'>
-                                <Form.Control type='text' />
+                                <Form.Control type='text' onChange={this.handleOnChange}/>
                             </Form.Group>
-                            <Button onChange={this.handleOnChange} variant="primary" type="submit" className='m-2'>
+                            <Button variant="primary" type="submit" className='m-3'>
                                 Search
                             </Button>
                         </Form>
