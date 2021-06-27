@@ -11,7 +11,7 @@ export const renderGoogleResults = results => {
         let attributes = bookResults[i].volumeInfo
         booksSearchResults.push({ 
             title: attributes.title,
-            author: attributes.authors,
+            author: attributes.authors[0],
             page_count: attributes.pageCount,
             image: attributes.imageLinks.thumbnail
         })

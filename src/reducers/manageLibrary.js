@@ -19,6 +19,12 @@ export default function manageLibrary( state = { books: [], searchResults: [] },
                 ...state,
                 books: [ ...newbooks ]
             }
+        case 'GET_SEARCH':
+            const results = action.payload
+            return {
+                ...state,
+                searchResults: [ ...results]
+            }
         default:
             return state
     }
