@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Card } from 'react-bootstrap';
-import GoogleBooks, { searchGoogle } from './GoogleBooks';
+import { searchGoogle } from './GoogleBooks';
 
 class SearchForm extends Component {
 
@@ -16,9 +16,7 @@ class SearchForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        const results = searchGoogle(this.state.search)
-        console.log(results)
-        // this.props.dispatchSearch()
+        searchGoogle(this.state.search)
         this.setState({
             search: ''
         })
@@ -33,7 +31,7 @@ class SearchForm extends Component {
                         <Form onSubmit={this.handleOnSubmit}>
                             <Form.Group  controlId='formSearch'>
                                 <Form.Control type='text' 
-                                    value={this.props.search}
+                                    // value={this.props.search}
                                     onChange={this.handleOnChange}
                                     name='search'/>
                             </Form.Group>

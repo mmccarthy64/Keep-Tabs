@@ -21,7 +21,7 @@ class App extends Component{
             createBook={this.props.createBook}
             books={this.props.books}
             deleteBook={this.props.deleteBook}
-            dispatchSearch={this.props.dispatchSearch}/>
+            search={this.props.search}/>
           {/* news */}
         </Router>
       </div>
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),
   getBooks: books => dispatch(getBooks(books)),
   deleteBook: id => dispatch(deleteBook(id)),
-  // dispatchSearch: payload => dispatch(loadGoogleResults(payload))
+  // search: payload => dispatch(loadGoogleResults(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

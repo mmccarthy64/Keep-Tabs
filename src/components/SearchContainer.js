@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 import { connect } from 'react-redux';
-import { loadGoogleResults } from '../actions/books';
 
 class SearchContainer extends Component {
     render() {
+        console.log(this.props)
         return (
             <div style={{ textAlign: 'center' }}>
-                <SearchForm dispatchSearch={this.props.dispatchSearch}/>
-                <SearchResults />
+                <SearchForm search={this.props.search}/>
+                <SearchResults results={this.props.results}/>
             </div>
         );
     }
