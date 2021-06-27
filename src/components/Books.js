@@ -14,8 +14,8 @@ class Books extends Component {
                 deleteBook={this.props.deleteBook}
             />)
         return (
-            <div>
-                <h1>Library</h1>
+            <div style={{ textAlign: 'center' }}>
+                <h1>My Library</h1>
                 <div className='grid'>
                     {books}
                 </div>

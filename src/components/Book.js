@@ -20,7 +20,7 @@ class Book extends Component {
                         <Card.Text>Pages: {page_count}</Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <Button className='mb-2' variant="primary" >View Comments</Button>
+                        {/* <Button className='mb-2' variant="primary" >View Comments</Button> */}
                         <Button variant="secondary" onClick={this.handleOnClick} >Delete from Library</Button>
                     </Card.Footer>
                 </Card>
