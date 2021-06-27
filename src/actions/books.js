@@ -35,6 +35,13 @@ export const getBooks = () => {
     }
 }
 
-export const deleteBook = () => {
-    
+export const deleteBook = id => {
+    return (dispatch) => {
+        fetch(`http://localhost:3001/books/${id}`, {
+            method: `DELETE`,
+        })
+            .then( resp => {
+                dispatch(deleteBook(id))
+            })
+    }
 }
