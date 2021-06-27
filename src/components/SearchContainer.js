@@ -10,15 +10,17 @@ class SearchContainer extends Component {
     }
 
     handleOnChange = e => {
-        const { name, value } = e.target
         this.setState({
-            [name]: value
+            search: e.target.value
         })
     }
 
     handleOnSubmit = e => {
         e.preventDefault()
         searchGoogle(this.state.search)
+        this.setState({
+            search: ''
+        })
     }
     render() {
         return (
