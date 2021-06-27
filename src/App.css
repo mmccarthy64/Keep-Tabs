@@ -13,17 +13,6 @@
   }
 }
 
-.card {
-  display: flex;
-  width: 400px;
-  height: 400px;
-  border-style: dashed;
-  border-radius: 25%;
-  margin: 10px;
-  background-position-y: bottom;
-  background-position-x: no-repeat;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

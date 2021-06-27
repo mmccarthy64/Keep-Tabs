@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Book from './Book';
+import './Book.css'
 
 class Books extends Component {
     render() {
@@ -11,9 +12,9 @@ class Books extends Component {
                 image={book.image}
             />)
         return (
-            <div style={{display: 'grid'}}>
+            <div>
                 <h1>Library</h1>
-                <div style={{ display: 'flex', flexDirection: 'row'}}>
+                <div className='grid'>
                     {books}
                 </div>
             </div>
