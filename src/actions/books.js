@@ -55,3 +55,10 @@ export const deleteBook = id => {
         }).catch(error => console.log(error));
     }
 }
+
+export const loadGoogleResults = payload => {
+    return {
+        type: 'LOAD_SEARCH',
+        payload
+    }
+}

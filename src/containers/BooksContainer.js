@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
-import { connect } from 'react-redux';
 import SearchContainer from '../components/SearchContainer';
 
 class BooksContainer extends Component {
@@ -25,5 +24,4 @@ class BooksContainer extends Component {
         );
     }
 }
-
-export default connect()(BooksContainer);
+export default BooksContainer;

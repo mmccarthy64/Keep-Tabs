@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
+import { connect } from 'react-redux';
 
 class SearchContainer extends Component {
     render() {
@@ -13,4 +14,5 @@ class SearchContainer extends Component {
     }
 }
 
-export default SearchContainer;
+
+export default connect()(SearchContainer);

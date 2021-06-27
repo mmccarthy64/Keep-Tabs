@@ -30,7 +30,10 @@ class SearchForm extends Component {
                         <h1 >Search Google Books</h1>
                         <Form onSubmit={this.handleOnSubmit}>
                             <Form.Group  controlId='formSearch'>
-                                <Form.Control type='text' onChange={this.handleOnChange}/>
+                                <Form.Control type='text' 
+                                    value={this.props.search}
+                                    onChange={this.handleOnChange}
+                                    name='search'/>
                             </Form.Group>
                             <Button variant="primary" type="submit" className='m-3'>
                                 Search

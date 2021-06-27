@@ -1,10 +1,12 @@
+import { loadGoogleResults } from "../actions/books"
+
 export const searchGoogle = (search) => {
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
             .then(response => response.json())
-            .then(results => renderGoogleResults(results))
+            .then(results => mapGoogleResults(results))
 }
 
-export const renderGoogleResults = results => {
+const mapGoogleResults = results => {
     const bookResults = results.items
     const booksSearchResults = []
     for (let i = 0; i < bookResults.length; i++){
@@ -16,5 +18,6 @@ export const renderGoogleResults = results => {
             image: attributes.imageLinks.thumbnail
         })
     }
+    loadGoogleResults(booksSearchResults)
     console.log(booksSearchResults)
 }
