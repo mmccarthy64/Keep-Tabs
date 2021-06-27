@@ -22,26 +22,36 @@ export const createBook = book => {
     }
 }
 
+export const renderBooks = books => {
+    return {
+        type: 'GET_BOOKS',
+        payload: books
+    }
+}
+
 export const getBooks = () => {
     return (dispatch) => {
         fetch('http://localhost:3001/books')
             .then(resp => resp.json())
             .then(books => {
-                dispatch({
-                    type: 'GET_BOOKS',
-                    payload: books
-                })
+                dispatch(renderBooks(books))
             })
+    }
+}
+
+export const deleteStoreBook = id => {
+    return {
+        type: 'DELETE_BOOK',
+        id
     }
 }
 
 export const deleteBook = id => {
     return (dispatch) => {
         fetch(`http://localhost:3001/books/${id}`, {
-            method: `DELETE`,
-        })
-            .then( resp => {
-                dispatch(deleteBook(id))
-            })
+            method: 'DELETE',
+        }).then(() => {
+            dispatch(deleteStoreBook(id))
+        }).catch(error => console.log(error));
     }
 }

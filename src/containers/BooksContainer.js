@@ -3,7 +3,6 @@ import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
-import { deleteBook } from '../actions/books';
 
 class BooksContainer extends Component {
 
@@ -26,8 +25,4 @@ class BooksContainer extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    deleteBook: id => dispatch(deleteBook(id))
-}
-
-export default connect(null, mapDispatchToProps)(BooksContainer);
+export default connect()(BooksContainer);

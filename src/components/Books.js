@@ -13,7 +13,6 @@ class Books extends Component {
                 image={book.image}
                 deleteBook={this.props.deleteBook}
             />)
-            this.props.books.map( book => console.log(book.id))
         return (
             <div>
                 <h1>Library</h1>

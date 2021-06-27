@@ -17,7 +17,7 @@ class App extends Component{
       <div className="App">
         < Router >
           <NavBar />
-          < BooksContainer createBook={this.props.createBook} books={this.props.books}/>
+          < BooksContainer createBook={this.props.createBook} books={this.props.books} deleteBook={this.props.deleteBook}/>
           {/* news */}
         </Router>
       </div>
@@ -30,7 +30,7 @@ const mapStateToProps = state => ({ books: state.books })
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),
   getBooks: books => dispatch(getBooks(books)),
-  // deleteBook: id => dispatch(deleteBook)
+  deleteBook: id => dispatch(deleteBook(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

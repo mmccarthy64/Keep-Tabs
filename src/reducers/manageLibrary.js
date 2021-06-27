@@ -12,6 +12,13 @@ export default function manageLibrary( state = { books: [], reviews: [] }, actio
                 ...state,
                 books: [...state.books, ...books]
             }
+
+        case 'DELETE_BOOK':
+            const newbooks = state.books.filter( book => book.id !== action.id )
+            return {
+                ...state,
+                books: [ ...newbooks ]
+            }
         default:
             return state
     }
