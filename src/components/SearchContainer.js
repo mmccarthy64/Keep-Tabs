@@ -12,7 +12,12 @@ class SearchContainer extends Component {
         const { name, value } = e.target
         this.setState({
             [name]: value
-        }, console.log(value))
+        })
+    }
+
+    handleOnSubmit = e => {
+        e.preventDefault()
+        this.props.search(this.state.search)
     }
     render() {
         return (
