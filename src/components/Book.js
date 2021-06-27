@@ -3,6 +3,10 @@ import { Card, Button } from 'react-bootstrap';
 import './Book.css'
 
 class Book extends Component {
+
+    handleOnClick = () => {
+
+    }
  
     render() {
         const { title, author, page_count, image } = this.props
@@ -17,7 +21,7 @@ class Book extends Component {
                     </Card.Body>
                     <Card.Footer>
                         <Button className='mb-2' variant="primary" >View Comments</Button>
-                        <Button variant="secondary" >Delete from Library</Button>
+                        <Button variant="secondary" onClick={this.handleOnClick} >Delete from Library</Button>
                     </Card.Footer>
                 </Card>
             </div>

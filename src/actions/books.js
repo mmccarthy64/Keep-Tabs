@@ -34,3 +34,7 @@ export const getBooks = () => {
             })
     }
 }
+
+export const deleteBook = () => {
+    
+}
