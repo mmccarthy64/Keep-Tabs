@@ -57,7 +57,6 @@ export const deleteBook = id => {
 }
 
 export const loadGoogleResults = payload => {
-    console.log(payload)
     return {
         type: 'LOAD_SEARCH',
         payload

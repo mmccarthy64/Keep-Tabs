@@ -1,78 +1,79 @@
-import SearchResults from "./SearchResults"
+// import SearchResults from "./SearchResults"
+// import uuid from 'uuid'
 
-export const searchGoogle = (search) => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
-    .then(response => response.json())
-    // .then(result => console.log(result))
-    .then(results => mapGoogleResults(results))
-}
-
-export const mapGoogleResults = results => {
-    const bookResults = results.items
-    const booksSearchResults = []
-    for (let i = 0; i < bookResults.length; i++){
-        let attributes = bookResults[i].volumeInfo
-        booksSearchResults.push({
-            tempId: i, 
-            title: attributes.title,
-            author: attributes.authors[0],
-            page_count: attributes.pageCount,
-            image: attributes.imageLinks.thumbnail
-        })
-    }
-    console.log(booksSearchResults)
-    return (
-        <>
-            <SearchResults results={booksSearchResults} />
-        </>
-    )
-}
-// import React, { Component } from 'react';
-
-// class GoogleBooks extends Component {
-
-//     searchGoogle = (search) => {
-//             fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
-//                 .then(response => response.json())
-//                 .then(results => mapGoogleResults(results))
-//     }
-
-//     mapGoogleResults = results => {
-//         const bookResults = results.items
-//         const booksSearchResults = []
-//         for (let i = 0; i < bookResults.length; i++){
-//             let attributes = bookResults[i].volumeInfo
-//             booksSearchResults.push({ 
-//                 title: attributes.title,
-//                 author: attributes.authors[0],
-//                 page_count: attributes.pageCount,
-//                 image: attributes.imageLinks.thumbnail
-//             })
-//         }
-//     }
-//     render() {
-//         return (
-//             <div>
-                
-//             </div>
-//         );
-//     }
+// export const searchGoogle = (search) => {
+//     fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
+//     .then(response => response.json())
+//     // .then(result => console.log(result))
+//     .then(results => mapGoogleResults(results))
 // }
 
-// export default GoogleBooks;
+// export const mapGoogleResults = results => {
+//     const bookResults = results.items
+//     const booksSearchResults = []
+//     for (let i = 0; i < bookResults.length; i++){
+//         let attributes = bookResults[i].volumeInfo
+//         booksSearchResults.push({
+//             tempId: uuid(), 
+//             title: attributes.title,
+//             author: attributes.authors[0],
+//             page_count: attributes.pageCount,
+//             image: attributes.imageLinks.thumbnail
+//         })
+//     }
+//     console.log(booksSearchResults)
+//     return (
+//         <>
+//             <SearchResults results={booksSearchResults} />
+//         </>
+//     )
+// }
+// // import React, { Component } from 'react';
 
-// // export const searchGoogle = (search) => {
-// //         fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
-// //             .then(response => response.json())
-// //             .then(results => mapGoogleResults(results))
+// // class GoogleBooks extends Component {
+
+// //     searchGoogle = (search) => {
+// //             fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
+// //                 .then(response => response.json())
+// //                 .then(results => mapGoogleResults(results))
+// //     }
+
+// //     mapGoogleResults = results => {
+// //         const bookResults = results.items
+// //         const booksSearchResults = []
+// //         for (let i = 0; i < bookResults.length; i++){
+// //             let attributes = bookResults[i].volumeInfo
+// //             booksSearchResults.push({ 
+// //                 title: attributes.title,
+// //                 author: attributes.authors[0],
+// //                 page_count: attributes.pageCount,
+// //                 image: attributes.imageLinks.thumbnail
+// //             })
+// //         }
+// //     }
+// //     render() {
+// //         return (
+// //             <div>
+                
+// //             </div>
+// //         );
+// //     }
 // // }
 
-// //     renderSearch(booksSearchResults)
-// // }
+// // export default GoogleBooks;
 
-// // const renderSearch = results => {
-// //     return (
+// // // export const searchGoogle = (search) => {
+// // //         fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
+// // //             .then(response => response.json())
+// // //             .then(results => mapGoogleResults(results))
+// // // }
 
-// //     )
-// //     console.log(results)
-// // }
+// // //     renderSearch(booksSearchResults)
+// // // }
+
+// // // const renderSearch = results => {
+// // //     return (
+
+// // //     )
+// // //     console.log(results)
+// // // }
