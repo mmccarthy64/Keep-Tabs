@@ -23,7 +23,7 @@ class App extends Component{
         < Router >
           <NavBar />
           <Switch>
-              <Route exact path='/library'>
+              <Route path='/library'>
                   < Books books={this.props.books} deleteBook={this.props.deleteBook} />
               </Route>
               <Route path='/search'>
