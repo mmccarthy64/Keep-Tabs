@@ -27,7 +27,7 @@ class App extends Component{
                   < Books books={this.props.books} deleteBook={this.props.deleteBook} />
               </Route>
               <Route path='/search'>
-                  <SearchContainer search={this.props.search}/>
+                  <SearchContainer search={this.props.search} searchResults={this.props.searchResults}/>
               </Route>
               <Route path='/books/new'>
                   < BookForm createBook={this.props.createBook} />
@@ -39,7 +39,7 @@ class App extends Component{
   }
 }
 
-const mapStateToProps = state => ({ books: state.books })
+const mapStateToProps = state => ({ books: state.books, searchResults: state.searchResults })
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),
