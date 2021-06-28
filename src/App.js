@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { createBook, deleteBook, getBooks, loadGoogleResults } from './actions/books';
+import { createBook, deleteBook, getBooks} from './actions/books';
 
 class App extends Component{
 
@@ -20,8 +20,7 @@ class App extends Component{
           < BooksContainer
             createBook={this.props.createBook}
             books={this.props.books}
-            deleteBook={this.props.deleteBook}
-            search={this.props.search}/>
+            deleteBook={this.props.deleteBook}/>
           {/* news */}
         </Router>
       </div>
@@ -29,7 +28,7 @@ class App extends Component{
   }
 }
 
-const mapStateToProps = state => ({ books: state.books, searchResults: state.searchResults })
+const mapStateToProps = state => ({ books: state.books })
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),

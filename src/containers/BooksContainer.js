@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import BookForm from '../components/BookForm';
 import Books from '../components/Books'
 import { Route, Switch } from 'react-router';
-import SearchContainer from '../components/SearchContainer';
+import SearchBooks from '../components/SearchBooks';
+
 
 class BooksContainer extends Component {
 
@@ -17,7 +18,7 @@ class BooksContainer extends Component {
                         < BookForm createBook={this.props.createBook} />
                     </Route>
                     <Route path='/search'>
-                        <SearchContainer search={this.props.search}/>
+                        <SearchBooks/>
                     </Route>
                 </Switch>
             </div>

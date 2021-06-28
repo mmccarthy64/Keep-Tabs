@@ -3,16 +3,19 @@ import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 import { connect } from 'react-redux';
 
-class SearchContainer extends Component {
+class SearchBooks extends Component {
+
     render() {
         console.log(this.props)
         return (
             <div style={{ textAlign: 'center' }}>
-                <SearchForm search={this.props.search}/>
+                <SearchForm />
                 <SearchResults results={this.props.results}/>
             </div>
         );
     }
 }
 
-export default SearchContainer;
+const mapStateToProps = state => ({ results: [state.results]})
+
+export default connect(mapStateToProps)(SearchBooks);

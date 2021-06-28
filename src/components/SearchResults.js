@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
+import Result from './Result';
 
 class SearchResults extends Component {
-
-    state = {
-        results: []
-    }
-
     render() {
+        const results = this.props.results.map( result => <Result key={1} {...result} />)
+
         return (
             <div>
-                <Result />
-                
+                {results}
             </div>
         );
     }

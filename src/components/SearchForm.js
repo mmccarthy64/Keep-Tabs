@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Form, Card } from 'react-bootstrap';
-import { searchGoogle } from './GoogleBooks';
 
 class SearchForm extends Component {
 
@@ -16,7 +15,8 @@ class SearchForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        searchGoogle(this.state.search)
+        // searchGoogle(this.state.search)
+        console.log(this.state.search)
         this.setState({
             search: ''
         })
