@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, Button } from 'react-bootstrap';
 
 class BookForm extends Component {
 
@@ -29,9 +30,10 @@ class BookForm extends Component {
 
     render() {
         return (
-            <div id='book-form'>
+            <Card>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
+                        <h1>Add New Book</h1>
                         <label htmlFor='title'>Title</label>
                         <div>
                             <input 
@@ -74,10 +76,10 @@ class BookForm extends Component {
                     </div>
                         <br/>
                     <div>
-                        <button type='submit'>Submit</button>
+                        <Button type='submit'>Add Book</Button>
                     </div>
                 </form>
-            </div>
+            </Card>
         );
     }
 }
