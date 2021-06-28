@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Card } from 'react-bootstrap';
+import { Button, Form, Card, Alert } from 'react-bootstrap';
 
 class SearchForm extends Component {
 
@@ -15,10 +15,12 @@ class SearchForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        this.searchGoogle(this.state.search)
-        this.setState({
-            search: ''
-        })
+        if(this.state.search !== ''){
+            this.searchGoogle(this.state.search)
+            this.setState({
+                search: ''
+            })
+        }
     }
 
     searchGoogle = (search) => {
@@ -31,7 +33,6 @@ class SearchForm extends Component {
         const bookResults = results.items
         console.log(bookResults)
         const booksSearchResults = []
-        if (bookResults.length > 0) {
             for (let i = 0; i < bookResults.length; i++){
                 let attributes = bookResults[i].volumeInfo
                 booksSearchResults.push({
@@ -43,7 +44,6 @@ class SearchForm extends Component {
                 })
             }
             this.props.search(booksSearchResults)
-        }
     }
 
     render() {
