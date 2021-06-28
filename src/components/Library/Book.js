@@ -15,7 +15,7 @@ class Book extends Component {
         this.setState({
             isFlipped: !this.state.isFlipped
         })
-        this.props.getComments()
+        this.state.isFlipped ? this.props.hideComments(this.props.id) : this.props.getComments(this.props.id)
     }
 
     handleOnClickDelete = () => {

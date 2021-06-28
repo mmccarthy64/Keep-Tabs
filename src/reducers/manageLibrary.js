@@ -14,16 +14,30 @@ export default function manageLibrary( state = { books: [], searchResults: [], c
             }
 
         case 'DELETE_BOOK':
-            const newbooks = state.books.filter( book => book.id !== action.id )
+            const updatedBooks = state.books.filter( book => book.id !== action.id )
             return {
                 ...state,
-                books: [ ...newbooks ]
+                books: [ ...updatedBooks ]
             }
         case 'LOAD_SEARCH':
             const results = action.payload
             return {
                 ...state,
                 searchResults: [ ...results]
+            }
+        case 'RENDER_COMMENTS':
+            const comments = action.payload.map( comment => comment )
+            console.log(comments)
+            return {
+                ...state,
+                comments: [ ...state.comments, ...comments]
+            }
+
+        case 'HIDE_COMMENTS':
+            const updateComments = state.comments.filter( comment => comment.book_id !== action.id)
+            return {
+                ...state,
+                comments: [ ...updateComments ]
             }
         default:
             return state

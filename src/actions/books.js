@@ -62,3 +62,28 @@ export const loadGoogleResults = payload => {
         payload
     }
 }
+
+export const renderComments = payload => {
+    return {
+        type: 'RENDER_COMMENTS',
+        payload
+    }
+}
+
+export const fetchComments = id => {
+    return (dispatch) => {
+        fetch(`http://localhost:3001/books/${id}/comments`)
+            .then(resp => resp.json())
+            .then(comments => {
+                dispatch(renderComments(comments))
+            })
+    }
+}
+
+export const hideComments = id => {
+    console.log(id)
+    return {
+        type: 'HIDE_COMMENTS',
+        id
+    }
+}

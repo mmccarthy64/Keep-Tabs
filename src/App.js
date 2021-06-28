@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { createBook, deleteBook, getBooks, loadGoogleResults } from './actions/books';
+import { createBook, deleteBook, getBooks, loadGoogleResults, fetchComments, hideComments } from './actions/books';
 import Books from "./components/Library/Books";
 import BookForm from "./components/Library/BookForm";
 import SearchContainer from "./containers/SearchContainer";
@@ -24,7 +24,7 @@ class App extends Component{
           <NavBar />
           <Switch>
               <Route path='/library'>
-                  < Books books={this.props.books} deleteBook={this.props.deleteBook} comments={this.props.comments} getComments={this.props.getComments}/>
+                  < Books books={this.props.books} deleteBook={this.props.deleteBook} comments={this.props.comments} getComments={this.props.getComments} hideComments={this.props.hideComments}/>
               </Route>
               <Route path='/search'>
                   <SearchContainer search={this.props.search} searchResults={this.props.searchResults} createBook={this.props.createBook}/>
@@ -45,7 +45,9 @@ const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),
   getBooks: books => dispatch(getBooks(books)),
   deleteBook: id => dispatch(deleteBook(id)),
-  search: payload => dispatch(loadGoogleResults(payload))
+  search: payload => dispatch(loadGoogleResults(payload)),
+  getComments: id => dispatch(fetchComments(id)),
+  hideComments: id => dispatch(hideComments(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

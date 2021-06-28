@@ -1,13 +1,17 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
 const BackCard = ({comments}) => {
+    console.log(comments)
+    const render = comments.map( comment => <li key={comment.id}>{comment.content}</li>)
     return (
         <div>
-            this is the back
-            this is the back
-            this is the back
-            this is the back
-            this is the back
+            <Card className='mb-2' style={{ width: '18rem'}}>
+                <Card.Header>Comments</Card.Header>
+                <Card.Body>
+                    <Card.Text>{render}</Card.Text>
+                </Card.Body>
+            </Card>
         </div>
     );
 }

@@ -13,6 +13,7 @@ class Books extends Component {
                 image={book.image}
                 comments={this.props.comments}
                 getComments={this.props.getComments}
+                hideComments={this.props.hideComments}
                 deleteBook={this.props.deleteBook}
             />)
         return (
