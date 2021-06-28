@@ -20,6 +20,8 @@ class SearchForm extends Component {
             this.setState({
                 search: ''
             })
+        } else {
+            alert("Search cannot be empty!")
         }
     }
 
