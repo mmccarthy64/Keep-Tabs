@@ -4,7 +4,7 @@ import { Button, Form, Card } from 'react-bootstrap';
 class SearchForm extends Component {
 
     state = {
-        search: 'search'
+        search: ''
     }
 
     handleOnChange = e => {
@@ -29,18 +29,21 @@ class SearchForm extends Component {
 
     mapGoogleResults = results => {
         const bookResults = results.items
+        console.log(bookResults)
         const booksSearchResults = []
-        for (let i = 0; i < bookResults.length; i++){
-            let attributes = bookResults[i].volumeInfo
-            booksSearchResults.push({
-                tempId: i, 
-                title: attributes.title,
-                author: attributes.authors[0],
-                page_count: attributes.pageCount,
-                image: attributes.imageLinks.thumbnail
-            })
+        if (bookResults.length > 0) {
+            for (let i = 0; i < bookResults.length; i++){
+                let attributes = bookResults[i].volumeInfo
+                booksSearchResults.push({
+                    tempId: i, 
+                    title: attributes.title,
+                    author: attributes.authors[0],
+                    page_count: attributes.pageCount,
+                    image: (attributes.imageLinks !== undefined) ? attributes.imageLinks.thumbnail : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
+                })
+            }
+            this.props.search(booksSearchResults)
         }
-        this.props.search(booksSearchResults)
     }
 
     render() {
@@ -51,10 +54,11 @@ class SearchForm extends Component {
                         <h1 >Search Google Books</h1>
                         <Form onSubmit={this.handleOnSubmit}>
                             <Form.Group  controlId='formSearch'>
-                                <Form.Control type='text' 
+                                <input type='text'
+                                    value={this.state.search}
                                     placeholder='Enter book keyword...'
-                                    onChange={this.handleOnChange}
-                                    name='search'/>
+                                    name='search'
+                                    onChange={this.handleOnChange}/>
                             </Form.Group>
                             <Button variant="primary" type="submit" className='m-3'>
                                 Search
@@ -66,5 +70,4 @@ class SearchForm extends Component {
         );
     }
 }
-
 export default SearchForm;

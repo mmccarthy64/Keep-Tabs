@@ -4,7 +4,7 @@ import { Card, Button } from 'react-bootstrap';
 class Result extends Component {
 
     handleOnClick = () => {
-        console.log(this.props)
+        // console.log(this.props)
         this.props.createBook(this.props)
     }
 
