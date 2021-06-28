@@ -2,7 +2,6 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 
 const BackCard = ({comments}) => {
-    console.log(comments)
     const render = comments.map( comment => <li key={comment.id}>{comment.content}</li>)
     return (
         <div>
