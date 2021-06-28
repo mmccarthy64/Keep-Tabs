@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
 import './Book.css'
-
-let viewComments = false
+import { Button, Card } from 'react-bootstrap';
+import ReactCardFlip from 'react-card-flip'
+import FrontCard from './FrontCard';
+import BackCard from './BackCard';
 
 class Book extends Component {
 
+    state = {
+        isFlipped: false
+    }
+
     handleOnClickComments = () => {
-        viewComments = !viewComments
-        console.log(this.props)
-        // this.props.image = ''
+        this.setState({
+            isFlipped: !this.state.isFlipped
+        })
+        console.log(this.state)
     }
 
     handleOnClickDelete = () => {
@@ -17,19 +23,31 @@ class Book extends Component {
     }
  
     render() {
-        const { title, author, page_count, image } = this.props
+        // const { title, author, page_count, image } = this.props
         return (
             <div>
                 <Card className='mb-2' style={{ width: '18rem'}}>
-                    <Card.Img variant="top" src={image} />
-                    <Card.Body>
-                        <Card.Title>{title}</Card.Title>
-                        <Card.Text>By: {author}</Card.Text>
-                        <Card.Text>Pages: {page_count}</Card.Text>
-                    </Card.Body>
+                    <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal' >
+                        <FrontCard book={this.props}/>
+                        <BackCard/>
+                        {/* <Card className='mb-2' style={{ width: '18rem'}}>
+                            <Card.Img variant="top" src={image} />
+                            <Card.Body>
+                                <Card.Title>{title}</Card.Title>
+                                <Card.Text>By: {author}</Card.Text>
+                                <Card.Text>Pages: {page_count}</Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                                <Button className='mb-2' variant="primary" onClick={this.handleOnClickComments} >View Comments</Button>
+                                <Button variant="secondary" onClick={this.handleOnClickDelete} >Delete from Library</Button>
+                            </Card.Footer>
+                        </Card> */}
+                        {/* <Button className='mb-2' variant="primary" onClick={this.handleOnClickComments} >View Comments</Button> */}
+                        {/* <Button variant="secondary" onClick={this.handleOnClickDelete} >Delete from Library</Button> */}
+                    </ReactCardFlip>
                     <Card.Footer>
-                        <Button className='mb-2' variant="primary" onClick={this.handleOnClickComments} >View Comments</Button>
-                        <Button variant="secondary" onClick={this.handleOnClickDelete} >Delete from Library</Button>
+                                <Button className='mb-2' variant="primary" onClick={this.handleOnClickComments} >{this.state.isFlipped ? 'Hide Comments' : 'View Comments'}</Button>
+                                <Button variant="secondary" onClick={this.handleOnClickDelete} >Delete from Library</Button>
                     </Card.Footer>
                 </Card>
             </div>
