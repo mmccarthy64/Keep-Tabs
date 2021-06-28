@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Form, Card } from 'react-bootstrap';
-import { searchGoogle } from './GoogleBooks';
 
 class SearchForm extends Component {
 
     state = {
-        search: ''
+        search: 'search'
     }
 
     handleOnChange = e => {
@@ -16,10 +15,7 @@ class SearchForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        // console.log(this.state.search)
-        // searchGoogle(this.state.search)
-        const result = this.searchGoogle(this.state.search)
-        // this.props.search(this.state.search)
+        this.searchGoogle(this.state.search)
         this.setState({
             search: ''
         })
@@ -28,7 +24,6 @@ class SearchForm extends Component {
     searchGoogle = (search) => {
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`)
         .then(response => response.json())
-        // .then(result => console.log(result))
         .then(results => this.mapGoogleResults(results))
     }
 
@@ -57,10 +52,9 @@ class SearchForm extends Component {
                         <Form onSubmit={this.handleOnSubmit}>
                             <Form.Group  controlId='formSearch'>
                                 <Form.Control type='text' 
-                                    // value={this.props.search}
                                     placeholder='Enter book keyword...'
                                     onChange={this.handleOnChange}
-                                    name='search' />
+                                    name='search'/>
                             </Form.Group>
                             <Button variant="primary" type="submit" className='m-3'>
                                 Search

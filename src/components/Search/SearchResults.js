@@ -12,7 +12,7 @@ class SearchResults extends Component {
                     author={result.author}
                     page_count={result.page_count}
                     image={result.image}
-                    addBook={this.props.addBook}
+                    createBook={this.props.createBook}
                 />)
                 return (
                     <div style={{ textAlign: 'center' }}>

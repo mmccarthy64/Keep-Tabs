@@ -27,7 +27,7 @@ class App extends Component{
                   < Books books={this.props.books} deleteBook={this.props.deleteBook} />
               </Route>
               <Route path='/search'>
-                  <SearchContainer search={this.props.search} searchResults={this.props.searchResults}/>
+                  <SearchContainer search={this.props.search} searchResults={this.props.searchResults} createBook={this.props.createBook}/>
               </Route>
               <Route path='/books/new'>
                   < BookForm createBook={this.props.createBook} />
