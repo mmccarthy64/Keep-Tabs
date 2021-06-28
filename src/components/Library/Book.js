@@ -8,7 +8,8 @@ class Book extends Component {
 
     handleOnClickComments = () => {
         viewComments = !viewComments
-        console.log(viewComments)
+        console.log(this.props)
+        // this.props.image = ''
     }
 
     handleOnClickDelete = () => {
