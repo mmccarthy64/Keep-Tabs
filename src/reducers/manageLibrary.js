@@ -1,4 +1,4 @@
-export default function manageLibrary( state = { books: [], searchResults: [] }, action ){
+export default function manageLibrary( state = { books: [], searchResults: [], comments: [] }, action ){
     switch(action.type){
         case 'ADD_BOOK':
             const book = action.payload

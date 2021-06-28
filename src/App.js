@@ -24,7 +24,7 @@ class App extends Component{
           <NavBar />
           <Switch>
               <Route path='/library'>
-                  < Books books={this.props.books} deleteBook={this.props.deleteBook} />
+                  < Books books={this.props.books} deleteBook={this.props.deleteBook} comments={this.props.comments} getComments={this.props.getComments}/>
               </Route>
               <Route path='/search'>
                   <SearchContainer search={this.props.search} searchResults={this.props.searchResults} createBook={this.props.createBook}/>
@@ -39,7 +39,7 @@ class App extends Component{
   }
 }
 
-const mapStateToProps = state => ({ books: state.books, searchResults: state.searchResults })
+const mapStateToProps = state => ({ books: state.books, searchResults: state.searchResults, comments: state.comments })
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => dispatch(createBook(book)),

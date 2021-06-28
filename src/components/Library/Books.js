@@ -11,6 +11,8 @@ class Books extends Component {
                 author={book.author}
                 page_count={book.page_count}
                 image={book.image}
+                comments={this.props.comments}
+                getComments={this.props.getComments}
                 deleteBook={this.props.deleteBook}
             />)
         return (

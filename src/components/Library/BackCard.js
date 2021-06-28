@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BackCard = () => {
+const BackCard = ({comments}) => {
     return (
         <div>
             this is the back
