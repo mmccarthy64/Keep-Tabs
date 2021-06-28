@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import './Book.css'
 
+let viewComments = false
+
 class Book extends Component {
 
-    handleOnClick = () => {
+    handleOnClickComments = () => {
+        viewComments = !viewComments
+        console.log(viewComments)
+    }
+
+    handleOnClickDelete = () => {
         this.props.deleteBook(this.props.id)
     }
  
@@ -20,8 +27,8 @@ class Book extends Component {
                         <Card.Text>Pages: {page_count}</Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        {/* <Button className='mb-2' variant="primary" >View Comments</Button> */}
-                        <Button variant="secondary" onClick={this.handleOnClick} >Delete from Library</Button>
+                        <Button className='mb-2' variant="primary" onClick={this.handleOnClickComments} >View Comments</Button>
+                        <Button variant="secondary" onClick={this.handleOnClickDelete} >Delete from Library</Button>
                     </Card.Footer>
                 </Card>
             </div>
