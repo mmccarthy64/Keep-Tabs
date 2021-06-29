@@ -24,10 +24,18 @@ class App extends Component{
           <NavBar />
           <Switch>
               <Route path='/library'>
-                  < Books books={this.props.books} deleteBook={this.props.deleteBook} comments={this.props.comments} getComments={this.props.getComments} hideComments={this.props.hideComments}/>
+                  < Books 
+                  books={this.props.books}
+                  deleteBook={this.props.deleteBook}
+                  comments={this.props.comments}
+                  getComments={this.props.getComments}
+                  hideComments={this.props.hideComments}/>
               </Route>
               <Route path='/search'>
-                  <SearchContainer search={this.props.search} searchResults={this.props.searchResults} createBook={this.props.createBook}/>
+                  <SearchContainer 
+                  search={this.props.search}
+                  searchResults={this.props.searchResults}
+                  createBook={this.props.createBook}/>
               </Route>
               <Route path='/books/new'>
                   < BookForm createBook={this.props.createBook} />
