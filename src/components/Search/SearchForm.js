@@ -40,9 +40,9 @@ class SearchForm extends Component {
                 booksSearchResults.push({
                     tempId: i, 
                     title: attributes.title,
-                    author: attributes.authors[0],
+                    author: Array.isArray(attributes.authors) ? attributes.authors[0] : attributes.authors,
                     page_count: attributes.pageCount,
-                    image: (attributes.imageLinks !== undefined) ? attributes.imageLinks.thumbnail : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
+                    image: attributes.imageLinks !== undefined ? attributes.imageLinks.thumbnail : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
                 })
             }
             this.props.search(booksSearchResults)
