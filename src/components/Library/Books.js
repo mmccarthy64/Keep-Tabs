@@ -25,7 +25,7 @@ const Books = (props) => {
         <div style={{ textAlign: 'center' }}>
             <h1>My Library</h1>
             <div>
-                <input type='text' placeholder='Search titles...' onChange={ (event) => setSearchTerm(event.target.value)} />
+                <input type='text' placeholder='Search library...' onChange={ (event) => setSearchTerm(event.target.value)} />
             </div>
             <div className='grid'>
                 {books}
