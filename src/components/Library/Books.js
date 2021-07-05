@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Book from './Book';
+import '../../App.css';
 
 const Books = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
@@ -22,15 +23,15 @@ const Books = (props) => {
             deleteBook={props.deleteBook}
         />)
     return (
-        <div style={{ textAlign: 'center' }}>
-            <h1>My Library</h1>
-            <div>
+        <>
+            <div className='library-light'>
+                <h1>My Library</h1>
                 <input type='text' placeholder='Search library...' onChange={ (event) => setSearchTerm(event.target.value)} />
+                <div className='grid'>
+                    {books}
+                </div>
             </div>
-            <div className='grid'>
-                {books}
-            </div>
-        </div>
+        </>
     );
 }
 

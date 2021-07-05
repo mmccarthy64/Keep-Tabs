@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.library-light {
+  text-align: center;
+  background-color: white;
+}
+
+.library-dark {
+  text-align: center;
+  background-color: rgb(37, 36, 36);
+}

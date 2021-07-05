@@ -14,9 +14,13 @@
     flex-direction: row;
     margin-left: 1rem;
   }
-  
-/*   
-  .grid > div {
-    flex-basis: calc(20%-40px);
-  } */
-  
+
+  .card-body-light {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+
+  .card-body-dark {
+    background-color: rgb(63, 62, 63);
+    color: white;
+  }
