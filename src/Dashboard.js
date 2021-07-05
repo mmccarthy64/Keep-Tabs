@@ -12,14 +12,20 @@ import BookForm from "./components/Library/BookForm";
 import SearchContainer from "./containers/SearchContainer";
 
 class Dashboard extends Component{
+  constructor(props){
+    super(props)
+  }
 
   componentDidMount(){
     this.props.getBooks()
   }
+
   render(){
     return (
       <div className="Dashboard">
-        < Router >
+        <h1>Dashboard</h1>
+        <h2>Status: {this.props.loggedInStatus}</h2>
+        {/* < Router >
           <NavBar />
           <Switch>
               <Route path='/library'>
@@ -40,7 +46,7 @@ class Dashboard extends Component{
                   < BookForm createBook={this.props.createBook} />
               </Route>
           </Switch>
-        </Router>
+        </Router> */}
       </div>
     );
   }

@@ -1,32 +1,87 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
-import manageLibrary from './reducers/manageLibrary'
-import thunk from 'redux-thunk';
 import Dashboard from './Dashboard';
 import {
     Route,
     Switch,
     BrowserRouter,
   } from "react-router-dom";
+import Home from './components/Home';
 
-const store = createStore(manageLibrary, compose(applyMiddleware(thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+class App extends Component{
+  constructor() {
+    super()
+    this.state = {
+      loggedInStatus: 'NOT_LOGGED_IN',
+      user: {}
+    };
 
-class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-            <Switch>
-                <Route exact path='/' />
-                <Route exact path='/dashboard'>
-                    <Provider store={store}>
-                        <Dashboard />
-                    </Provider>
-                </Route>
-            </Switch>
-            </BrowserRouter>
-        );
-    }
+    this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
+  }
+
+  checkLoginStatus(){
+    axios.get('http://localhost:3001/logged_in', {
+      withCredentials: true
+    })
+      .then(res => {
+        if (res.data.logged_in && this.state.loggedInStatus === 'NOT_LOGGED_IN'){
+          this.setState({
+            loggedInStatus: 'LOGGED_IN',
+            user: res.data.user
+          })
+        } else if (!res.data.logged_in && this.state.loggedInStatus === 'LOGGED_IN') {
+          this.setState({
+            loggedInStatus: 'NOT_LOGGED_IN',
+            user: {}
+          })
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
+  componentDidMount(){
+    this.checkLoginStatus()
+  }
+
+  handleLogout(){
+    this.setState({
+      loggedInStatus: 'NOT_LOGGED_IN',
+      user: {}
+    })
+  }
+
+  handleLogin(data){
+    this.setState({
+      loggedInStatus: 'LOGGED_IN',
+      user: data.user
+    })
+    console.log(data)
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Switch>
+            <Route
+                exact path='/'
+                render={props => (
+                    <Home 
+                        {...props} 
+                        loggedInStatus={this.state.loggedInStatus} 
+                        handleLogin={this.handleLogin}
+                        handleLogout={this.handleLogout} />
+              )} />
+            <Route 
+                exact path='/dashboard'
+                render={props => (
+                    <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} />
+                )} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
