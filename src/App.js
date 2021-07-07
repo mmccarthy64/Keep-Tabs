@@ -97,10 +97,10 @@ class App extends Component{
     } else if ( loggedInStatus === 'LOGGED_IN'){
       return (
         <BrowserRouter>
-        <Redirect to='/dashboard' />
+        <Redirect to='/library' />
           <Route
             exact
-            path={'/dashboard'}
+            path={'/library'}
             render={props => (
               <Dashboard
                 {...props}

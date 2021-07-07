@@ -3,6 +3,7 @@ import {
   Route,
   Switch,
   BrowserRouter as Router,
+  Redirect,
 } from "react-router-dom";
 import { Component } from "react";
 import { connect } from "react-redux";
