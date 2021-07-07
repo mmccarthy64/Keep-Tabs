@@ -33,7 +33,7 @@ class Registration extends Component {
                 }
             })
             .catch(error => {
-                console.log('error', error)
+                console.log('Error:', error)
             })
     }
 

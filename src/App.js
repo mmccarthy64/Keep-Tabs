@@ -18,6 +18,7 @@ class App extends Component{
 
     this.handleLogin = this.handleLogin.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
+    this.handleLogoutSession = this.handleLogoutSession.bind(this)
   }
 
   checkLoginStatus(){
@@ -53,6 +54,18 @@ class App extends Component{
     })
   }
 
+  handleLogoutSession(){
+    axios.delete('http://localhost:3001/logout', {
+        withCredentials: true
+    })
+        .then(res => {
+            this.handleLogout()
+        })
+        .catch(err => {
+            console.log('Error:', err)
+        })
+}
+
   handleLogin(data){
     this.setState({
       loggedInStatus: 'LOGGED_IN',
@@ -72,7 +85,7 @@ class App extends Component{
               <Home
               {...props}
               handleLogin={this.handleLogin}
-              handleLogout={this.handleLogout}
+              handleLogoutSession={this.handleLogoutSession}
               loggedInStatus={this.state.loggedInStatus}/>
             )} />
             <Route
@@ -81,6 +94,7 @@ class App extends Component{
               render={props => (
                 <Dashboard
                   {...props}
+                  handleLogoutSession={this.handleLogoutSession}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} />
               )} />

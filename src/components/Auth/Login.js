@@ -28,6 +28,7 @@ class Login extends Component {
                 if (res.data.logged_in){
                     this.props.handleSuccessfulAuth(res.data)
                 } else {
+                    alert('Wrong username/password combo! Try again.')
                     console.log('Error')
                 }
             })

@@ -22,7 +22,7 @@ class Dashboard extends Component{
       <div className="Dashboard">
         <h1>Dashboard</h1>
         <h2>Status: {this.props.loggedInStatus}</h2>
-        <button onClick={() => this.props.handleLogout()} >Logout</button>
+        <button onClick={() => this.props.handleLogoutSession()} >Logout</button>
         < Router >
           <NavBar />
           <Switch>
