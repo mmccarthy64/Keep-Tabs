@@ -80,6 +80,7 @@ class App extends Component{
               render={props => (
                 <Dashboard
                   {...props}
+                  handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} />
               )} />
             </Switch>
