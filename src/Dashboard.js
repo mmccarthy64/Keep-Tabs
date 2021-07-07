@@ -13,9 +13,9 @@ import SearchContainer from "./containers/SearchContainer";
 
 class Dashboard extends Component{
 
-  // componentDidMount(){
-  //   this.props.getBooks()
-  // }
+  componentDidMount(){
+    this.props.getBooks()
+  }
 
   render(){
     return (
@@ -23,7 +23,7 @@ class Dashboard extends Component{
         <h1>Dashboard</h1>
         <h2>Status: {this.props.loggedInStatus}</h2>
         <button onClick={() => this.props.handleLogout()} >Logout</button>
-        {/* < Router >
+        < Router >
           <NavBar />
           <Switch>
               <Route path='/library'>
@@ -44,7 +44,7 @@ class Dashboard extends Component{
                   < BookForm createBook={this.props.createBook} />
               </Route>
           </Switch>
-        </Router> */}
+        </Router>
       </div>
     );
   }

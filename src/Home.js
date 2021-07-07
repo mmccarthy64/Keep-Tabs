@@ -12,6 +12,7 @@ class Home extends Component {
 
     handleSuccessfulAuth(data){
         this.props.handleLogin(data)
+        // console.log(this.props)
         this.props.history.push('/dashboard')
     }
 
