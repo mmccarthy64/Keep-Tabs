@@ -5,7 +5,8 @@ import {
     Switch,
     BrowserRouter,
   } from "react-router-dom";
-import Home from './components/Home';
+import Home from './Home';
+import axios from 'axios';
 
 class App extends Component{
   constructor() {
@@ -64,20 +65,24 @@ class App extends Component{
         <BrowserRouter>
           <Switch>
             <Route
-                exact path='/'
-                render={props => (
-                    <Home 
-                        {...props} 
-                        loggedInStatus={this.state.loggedInStatus} 
-                        handleLogin={this.handleLogin}
-                        handleLogout={this.handleLogout} />
+            exact
+            path={'/'}
+            render={props => (
+              <Home
+              {...props}
+              handleLogin={this.handleLogin}
+              handleLogout={this.handleLogout}
+              loggedInStatus={this.state.loggedInStatus}/>
+            )} />
+            <Route
+              exact
+              path={'/dashboard'}
+              render={props => (
+                <Dashboard
+                  {...props}
+                  loggedInStatus={this.state.loggedInStatus} />
               )} />
-            <Route 
-                exact path='/dashboard'
-                render={props => (
-                    <Dashboard {...props} loggedInStatus={this.state.loggedInStatus} />
-                )} />
-          </Switch>
+            </Switch>
         </BrowserRouter>
       </div>
     );

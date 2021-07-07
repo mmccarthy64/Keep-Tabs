@@ -12,13 +12,10 @@ import BookForm from "./components/Library/BookForm";
 import SearchContainer from "./containers/SearchContainer";
 
 class Dashboard extends Component{
-  constructor(props){
-    super(props)
-  }
 
-  componentDidMount(){
-    this.props.getBooks()
-  }
+  // componentDidMount(){
+  //   this.props.getBooks()
+  // }
 
   render(){
     return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Registration from './auth/Registration';
-import Login from './auth/Login'
 import axios from 'axios';
+import Registration from './components/Auth/Registration';
+import Login from './components/Auth/Login';
 
 class Home extends Component {
     constructor(props){
@@ -12,7 +12,7 @@ class Home extends Component {
 
     handleSuccessfulAuth(data){
         this.props.handleLogin(data)
-        // this.props.history.push('/dashboard')
+        this.props.history.push('/dashboard')
     }
 
     handleLogoutClick(){
