@@ -15,7 +15,11 @@ import SearchContainer from "./containers/SearchContainer";
 class Dashboard extends Component{
 
   componentDidMount(){
-    this.props.getBooks()
+      this.props.getBooks()
+  }
+
+  handleOnLogoutClick = () => {
+    this.props.handleLogoutSession()
   }
 
   render(){
@@ -23,7 +27,7 @@ class Dashboard extends Component{
       <div className="Dashboard">
         <h1>Dashboard</h1>
         <h2>Status: {this.props.loggedInStatus}</h2>
-        <button onClick={() => this.props.handleLogoutSession()} >Logout</button>
+        <button onClick={this.handleOnLogoutClick} >Logout</button>
         < Router >
           <NavBar />
           <Switch>

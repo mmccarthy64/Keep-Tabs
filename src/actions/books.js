@@ -24,7 +24,7 @@ export const createBook = book => {
 
 export const renderBooks = books => {
     return {
-        type: 'GET_BOOKS',
+        type: 'RENDER_BOOKS',
         payload: books
     }
 }

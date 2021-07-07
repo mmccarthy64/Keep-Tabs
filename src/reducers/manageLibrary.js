@@ -6,11 +6,11 @@ export default function manageLibrary( state = { books: [], searchResults: [], c
                 ...state,
                 books: [ ...state.books, book ]
             }
-        case 'GET_BOOKS':
+        case 'RENDER_BOOKS':
             const books = action.payload
             return {
                 ...state,
-                books: [...state.books, ...books]
+                books: [...books]
             }
 
         case 'DELETE_BOOK':

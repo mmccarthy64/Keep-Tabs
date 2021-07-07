@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Dashboard from './Dashboard';
 import {
     Route,
-    Switch,
     BrowserRouter,
     Redirect,
   } from "react-router-dom";
