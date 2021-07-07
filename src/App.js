@@ -4,6 +4,7 @@ import {
     Route,
     Switch,
     BrowserRouter,
+    Redirect,
   } from "react-router-dom";
 import Home from './Home';
 import axios from 'axios';
@@ -74,34 +75,55 @@ class App extends Component{
   }
 
   render(){
-    return (
-      <div className="App">
-        <BrowserRouter>
-          <Switch>
-            <Route
-            exact
-            path={'/'}
-            render={props => (
-              <Home
-              {...props}
-              handleLogin={this.handleLogin}
-              handleLogoutSession={this.handleLogoutSession}
-              loggedInStatus={this.state.loggedInStatus}/>
-            )} />
-            <Route
-              exact
-              path={'/dashboard'}
-              render={props => (
-                <Dashboard
+    const { loggedInStatus } = this.state
+
+    if( loggedInStatus === 'NOT_LOGGED_IN' ){
+      return (
+        <div className="App">
+          <BrowserRouter>
+          <Redirect to='/'/>
+            {/* <Switch> */}
+              <Route
+                exact
+                path={'/'}
+                render={props => (
+                  <Home
                   {...props}
-                  handleLogoutSession={this.handleLogoutSession}
-                  handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedInStatus} />
-              )} />
-            </Switch>
+                  handleLogin={this.handleLogin}
+                  // handleLogoutSession={this.handleLogoutSession}
+                  loggedInStatus={this.state.loggedInStatus}/>
+                )} />
+              {/* <Route
+                exact
+                path={'/dashboard'}
+                render={props => (
+                  <Dashboard
+                    {...props}
+                    handleLogoutSession={this.handleLogoutSession}
+                    handleLogout={this.handleLogout}
+                    loggedInStatus={this.state.loggedInStatus} />
+                )} /> */}
+              {/* </Switch> */}
+          </BrowserRouter>
+        </div>
+      );
+    } else if ( loggedInStatus === 'LOGGED_IN'){
+      return (
+        <BrowserRouter>
+        <Redirect to='/dashboard' />
+          <Route
+            exact
+            path={'/dashboard'}
+            render={props => (
+              <Dashboard
+                {...props}
+                handleLogoutSession={this.handleLogoutSession}
+                handleLogout={this.handleLogout}
+                loggedInStatus={this.state.loggedInStatus} />
+            )} />
         </BrowserRouter>
-      </div>
-    );
+      )
+    }
   }
 }
 
