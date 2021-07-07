@@ -82,7 +82,6 @@ class App extends Component{
         <div className="App">
           <BrowserRouter>
           <Redirect to='/'/>
-            {/* <Switch> */}
               <Route
                 exact
                 path={'/'}
@@ -90,20 +89,8 @@ class App extends Component{
                   <Home
                   {...props}
                   handleLogin={this.handleLogin}
-                  // handleLogoutSession={this.handleLogoutSession}
                   loggedInStatus={this.state.loggedInStatus}/>
                 )} />
-              {/* <Route
-                exact
-                path={'/dashboard'}
-                render={props => (
-                  <Dashboard
-                    {...props}
-                    handleLogoutSession={this.handleLogoutSession}
-                    handleLogout={this.handleLogout}
-                    loggedInStatus={this.state.loggedInStatus} />
-                )} /> */}
-              {/* </Switch> */}
           </BrowserRouter>
         </div>
       );
