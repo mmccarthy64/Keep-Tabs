@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Nav, Navbar, Button} from 'react-bootstrap';
-import { useState } from "react";
+// import { useState } from "react";
 
-const NavBar = () => {
+const NavBar = (props) => {
 
     // let [darkMode, setDarkMode] = useState(true)
     
@@ -26,6 +26,8 @@ const NavBar = () => {
                     <Nav.Link as={Link} to='/books/new'><h2>Add Book</h2></Nav.Link>
                     <Nav.Link as={Link} to='/search'><h2>Search Google Books</h2></Nav.Link>
             </Nav>
+            <Nav.Link as={Link} to='/library'><h2>Welcome, {props.user.username}</h2></Nav.Link>
+            <Button onClick={() => props.handleLogoutClick()} >Logout</Button>
             {/* <Button onClick={(darkMode) => toggleDarkMode(darkMode)} >{darkMode ? 'Dark Mode' : 'Light Mode'}</Button> */}
         </Navbar>
     );

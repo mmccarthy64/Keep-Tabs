@@ -3,11 +3,10 @@ import {
   Route,
   Switch,
   BrowserRouter as Router,
-  Redirect,
 } from "react-router-dom";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { createBook, deleteBook, getBooks, loadGoogleResults, fetchComments, hideComments } from './actions/books';
+import { createBook, deleteBook, getBooks, loadGoogleResults, getComments, hideComments } from './actions/books';
 import Books from "./components/Library/Books";
 import BookForm from "./components/Library/BookForm";
 import SearchContainer from "./containers/SearchContainer";
@@ -25,11 +24,10 @@ class Dashboard extends Component{
   render(){
     return (
       <div className="Dashboard">
-        <h1>Dashboard</h1>
-        <h2>Status: {this.props.loggedInStatus} | Username: {this.props.user.username}</h2>
-        <button onClick={this.handleOnLogoutClick} >Logout</button>
         < Router >
-          <NavBar />
+          <NavBar 
+            handleLogoutClick={this.handleOnLogoutClick}
+            user={this.props.user}/>
           <Switch>
               <Route path='/library'>
                   < Books 
@@ -65,7 +63,7 @@ const mapDispatchToProps = dispatch => ({
   getBooks: books => dispatch(getBooks(books)),
   deleteBook: id => dispatch(deleteBook(id)),
   search: payload => dispatch(loadGoogleResults(payload)),
-  getComments: id => dispatch(fetchComments(id)),
+  getComments: id => dispatch(getComments(id)),
   hideComments: id => dispatch(hideComments(id))
 })
 

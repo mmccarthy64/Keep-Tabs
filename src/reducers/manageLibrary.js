@@ -27,7 +27,6 @@ export default function manageLibrary( state = { books: [], searchResults: [], c
             }
         case 'RENDER_COMMENTS':
             const comments = action.payload.map( comment => comment )
-            console.log(comments)
             return {
                 ...state,
                 comments: [...comments]

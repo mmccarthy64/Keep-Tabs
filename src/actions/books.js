@@ -71,7 +71,7 @@ export const renderComments = payload => {
     }
 }
 
-export const fetchComments = id => {
+export const getComments = id => {
     return (dispatch) => {
         fetch(`http://localhost:3001/books/${id}/comments`)
             .then(resp => resp.json())
