@@ -19,6 +19,7 @@ export const createBook = book => {
             .then(book => {
                 dispatch(addBook(book))
             })
+            .catch(err => console.log('Error:', err))
     }
 }
 
@@ -29,15 +30,25 @@ export const renderBooks = books => {
     }
 }
 
-export const getBooks = () => {
+export const getBooks = id => {
     return (dispatch) => {
-        fetch('http://localhost:3001/books')
+        fetch(`http://localhost:3001/sessions/${id}/books`)
             .then(resp => resp.json())
             .then(books => {
                 dispatch(renderBooks(books))
             })
     }
 }
+
+// export const getBooks = () => {
+//     return (dispatch) => {
+//         fetch(`http://localhost:3001/books`)
+//             .then(resp => resp.json())
+//             .then(books => {
+//                 dispatch(renderBooks(books))
+//             })
+//     }
+// }
 
 export const deleteStoreBook = id => {
     return {

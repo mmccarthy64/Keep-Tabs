@@ -8,7 +8,10 @@ class SearchContainer extends Component {
         return (
             <div style={{ textAlign: 'center' }}>
                 <SearchForm search={this.props.search}/>
-                <SearchResults searchResults={this.props.searchResults} createBook={this.props.createBook}/>
+                <SearchResults 
+                    searchResults={this.props.searchResults} 
+                    createBook={this.props.createBook}
+                    user_id={this.props.user_id}/>
             </div>
         );
     }

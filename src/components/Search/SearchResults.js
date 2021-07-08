@@ -3,9 +3,11 @@ import Result from './Result';
 
 class SearchResults extends Component {
     render() {
+        // console.log(this.props)
         if(this.props.searchResults !== null){
             const results = this.props.searchResults.map( result => 
                 <Result key={result.tempId}
+                    user_id={this.props.user_id}
                     id={result.tempId}
                     title={result.title}
                     author={result.author}

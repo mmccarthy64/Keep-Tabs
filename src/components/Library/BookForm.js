@@ -7,11 +7,13 @@ class BookForm extends Component {
         title: '',
         author: '',
         page_count: 0,
-        image: ''
+        image: '',
+        user_id: this.props.user_id
     }
 
     handleOnSubmit = e => {
         e.preventDefault()
+        console.log(this.state)
         this.props.createBook(this.state)
         this.setState({
             title: '',

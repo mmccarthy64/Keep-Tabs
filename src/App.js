@@ -26,7 +26,7 @@ class App extends Component{
       withCredentials: true
     })
       .then(res => {
-        console.log('Logged in?', res)
+        // console.log('Logged in?', res)
         if (res.data.logged_in && this.state.loggedInStatus === 'NOT_LOGGED_IN'){
           this.setState({
             loggedInStatus: 'LOGGED_IN',
@@ -47,7 +47,7 @@ class App extends Component{
   }
 
   handleLogout(){
-    console.log(this)
+    // console.log(this)
     this.setState({
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {}
@@ -103,6 +103,7 @@ class App extends Component{
             render={props => (
               <Dashboard
                 {...props}
+                {...this.state}
                 handleLogoutSession={this.handleLogoutSession}
                 handleLogout={this.handleLogout}
                 loggedInStatus={this.state.loggedInStatus} />

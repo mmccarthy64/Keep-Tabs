@@ -15,7 +15,7 @@ import SearchContainer from "./containers/SearchContainer";
 class Dashboard extends Component{
 
   componentDidMount(){
-      this.props.getBooks()
+      this.props.getBooks(this.props.user.id)
   }
 
   handleOnLogoutClick = () => {
@@ -26,27 +26,30 @@ class Dashboard extends Component{
     return (
       <div className="Dashboard">
         <h1>Dashboard</h1>
-        <h2>Status: {this.props.loggedInStatus}</h2>
+        <h2>Status: {this.props.loggedInStatus} | Username: {this.props.user.username}</h2>
         <button onClick={this.handleOnLogoutClick} >Logout</button>
         < Router >
           <NavBar />
           <Switch>
               <Route path='/library'>
                   < Books 
-                  books={this.props.books}
-                  deleteBook={this.props.deleteBook}
-                  comments={this.props.comments}
-                  getComments={this.props.getComments}
-                  hideComments={this.props.hideComments}/>
+                    books={this.props.books}
+                    deleteBook={this.props.deleteBook}
+                    comments={this.props.comments}
+                    getComments={this.props.getComments}
+                    hideComments={this.props.hideComments}/>
               </Route>
               <Route path='/search'>
                   <SearchContainer 
-                  search={this.props.search}
-                  searchResults={this.props.searchResults}
-                  createBook={this.props.createBook}/>
+                    user_id={this.props.user.id}
+                    search={this.props.search}
+                    searchResults={this.props.searchResults}
+                    createBook={this.props.createBook}/>
               </Route>
               <Route path='/books/new'>
-                  < BookForm createBook={this.props.createBook} />
+                  < BookForm 
+                    createBook={this.props.createBook}
+                    user_id={this.props.user.id} />
               </Route>
           </Switch>
         </Router>
