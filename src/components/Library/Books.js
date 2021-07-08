@@ -24,11 +24,12 @@ const Books = (props) => {
         />)
     return (
         <>
-            <div className='library-light'>
+            <div className='library'>
                 <h1>My Library</h1>
                 <input type='text' placeholder='Search library...' onChange={ (event) => setSearchTerm(event.target.value)} />
                 <div className='grid'>
-                    {books}
+                    {books.length > 0 ? books : 
+                        <h1 style={{color:'#FF0000'}}>Your library is empty: <br/>Search for books to add or add your own books above</h1>}
                 </div>
             </div>
         </>

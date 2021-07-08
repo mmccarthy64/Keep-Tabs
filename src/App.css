@@ -37,12 +37,12 @@
   }
 }
 
-.library-light {
+.library {
   text-align: center;
   background-color: white;
 }
 
-.library-dark {
+/* .library-dark {
   text-align: center;
   background-color: rgb(37, 36, 36);
-}
+} */
