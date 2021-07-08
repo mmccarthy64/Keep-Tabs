@@ -30,7 +30,7 @@ export default function manageLibrary( state = { books: [], searchResults: [], c
             console.log(comments)
             return {
                 ...state,
-                comments: [ ...state.comments, ...comments]
+                comments: [...comments]
             }
 
         case 'HIDE_COMMENTS':
