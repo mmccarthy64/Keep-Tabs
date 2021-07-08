@@ -40,16 +40,6 @@ export const getBooks = id => {
     }
 }
 
-// export const getBooks = () => {
-//     return (dispatch) => {
-//         fetch(`http://localhost:3001/books`)
-//             .then(resp => resp.json())
-//             .then(books => {
-//                 dispatch(renderBooks(books))
-//             })
-//     }
-// }
-
 export const deleteStoreBook = id => {
     return {
         type: 'DELETE_BOOK',
