@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Card, Form, Button, Col, Row } from 'react-bootstrap';
 
 class Login extends Component {
     constructor(props){
@@ -44,25 +45,36 @@ class Login extends Component {
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit} >
-                    <input 
-                        type='text'
-                        name='username' 
-                        placeholder='Username' 
-                        value={this.state.username} 
-                        onChange={this.handleChange}
-                        required />
-                    <input 
-                        type='password'
-                        name='password' 
-                        placeholder='Password' 
-                        value={this.state.password} 
-                        onChange={this.handleChange}
-                        required />
-                    <button type='submit'>Login</button>
-                </form>
-            </div>
+                <Card style={{ color: '#000000'}}>
+                    <Card.Title><h2>Login</h2></Card.Title>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group as={Row}>
+                            <Form.Label column sm={5}>Username</Form.Label>
+                            <Col>
+                                <input 
+                                    type='text'
+                                    name='username' 
+                                    placeholder='Username' 
+                                    value={this.state.username} 
+                                    onChange={this.handleChange}
+                                    required />
+                                    </Col>
+                        </Form.Group>
+                        <Form.Group as={Row}>
+                            <Form.Label column sm={5}>Password</Form.Label>
+                            <Col>
+                                <input 
+                                    type='password'
+                                    name='password' 
+                                    placeholder='Password' 
+                                    value={this.state.password} 
+                                    onChange={this.handleChange}
+                                    required />
+                                    </Col>
+                        </Form.Group>
+                        <Button type='submit'>Login</Button>
+                    </Form>
+                </Card>
         );
     }
 }

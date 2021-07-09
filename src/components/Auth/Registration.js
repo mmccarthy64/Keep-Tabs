@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 
 class Registration extends Component {
     constructor(props){
@@ -29,7 +30,7 @@ class Registration extends Component {
                 if (res.data.status === 'created'){
                     this.props.handleSuccessfulAuth(res.data)
                 } else {
-                    console.log('Error')
+                    alert('Username is taken, choose another')
                 }
             })
             .catch(error => {
@@ -44,32 +45,48 @@ class Registration extends Component {
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit} >
-                    <input 
-                        type='text'
-                        name='username' 
-                        placeholder='Username' 
-                        value={this.state.username} 
-                        onChange={this.handleChange}
-                        required />
-                    <input 
-                        type='password'
-                        name='password' 
-                        placeholder='Password' 
-                        value={this.state.password} 
-                        onChange={this.handleChange}
-                        required />
-                    <input 
-                        type='password'
-                        name='password_confirmation' 
-                        placeholder='Password confirmation' 
-                        value={this.state.password_confirmation} 
-                        onChange={this.handleChange}
-                        required />
-                    <button type='submit'>Submit</button>
-                </form>
-            </div>
+                <Card style={{ color: '#000000'}}>
+                    <Card.Title><h2>Signup</h2></Card.Title>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group as={Row}>
+                            <Form.Label column sm={5}>Username:</Form.Label>
+                            <Col>
+                                <input 
+                                type='text'
+                                name='username' 
+                                placeholder='Username' 
+                                value={this.state.username} 
+                                onChange={this.handleChange}
+                                required />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row}>
+                            <Form.Label column sm={5}>Password:</Form.Label>
+                            <Col>
+                                <input 
+                                type='password'
+                                name='password' 
+                                placeholder='Password' 
+                                value={this.state.password} 
+                                onChange={this.handleChange}
+                                required />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row}>
+                            <Form.Label column sm={5}>Password Confirmation:</Form.Label>
+                            <Col>
+                                <input 
+                                type='password'
+                                name='password_confirmation' 
+                                placeholder='Password confirmation' 
+                                value={this.state.password_confirmation} 
+                                onChange={this.handleChange}
+                                required />
+                            </Col>
+                        </Form.Group>
+                        <Button type='submit'>Signup</Button>
+                    </Form>
+                </Card>
         );
     }
 }
