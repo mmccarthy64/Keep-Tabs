@@ -10,6 +10,7 @@ const Books = (props) => {
         } else if ( book.title.toLowerCase().includes(searchTerm.toLowerCase()) || book.author.toLowerCase().includes(searchTerm.toLowerCase())){
             return book
         }
+        return false
     }).map( book => 
         <Book key={book.id}
             id={book.id}
