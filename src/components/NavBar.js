@@ -5,17 +5,14 @@ import { Nav, Navbar, Button} from 'react-bootstrap';
 const NavBar = (props) => {
 
     // let [darkMode, setDarkMode] = useState(true)
-    
-    // const toggleDarkMode = () => {
-    //     const backgroundColor = document.getElementsByClassName('library-light')[0]
-    //     if ( darkMode === true){
-    //         setDarkMode(false)
-    //         backgroundColor.className='library-dark'
-    //     } else {
-    //         setDarkMode(true)
-    //         backgroundColor.className='library-light'
+
+    // const toggleDarkMode = (darkMode) => {
+    //     if (darkMode === true){
+    //         props.swapDarkMode(darkMode)
+    //     } else if (darkMode === false){
+    //         props.swapDarkMode(darkMode)
     //     }
-    //     console.log(darkMode)
+    //     setDarkMode(!darkMode)
     // }
 
     return (
@@ -28,7 +25,7 @@ const NavBar = (props) => {
             </Nav>
             <Nav.Link as={Link} to='/library'><h2>Welcome, {props.user.username}</h2></Nav.Link>
             <Button onClick={() => props.handleLogoutClick()} >Logout</Button>
-            {/* <Button onClick={(darkMode) => toggleDarkMode(darkMode)} >{darkMode ? 'Dark Mode' : 'Light Mode'}</Button> */}
+            {/* <Button variant='secondary' onClick={() => toggleDarkMode(darkMode)} >{darkMode ? 'Dark Mode' : 'Light Mode'}</Button> */}
         </Navbar>
     );
 }

@@ -21,11 +21,23 @@ class Dashboard extends Component{
     this.props.handleLogoutSession()
   }
 
+  // swapDarkMode = (darkMode) => {
+  //   console.log(darkMode)
+  //   if (darkMode){
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
+
   render(){
     return (
-      <div className="Dashboard">
+      // <div className={ this.swapDarkMode() === true ? "Dashboard-light" : 'Dashboard-dark'}>
+      <div className='Dashboard-light'>
         < Router >
           <NavBar 
+
+            swapDarkMode={this.swapDarkMode}
             handleLogoutClick={this.handleOnLogoutClick}
             user={this.props.user}/>
           <Switch>

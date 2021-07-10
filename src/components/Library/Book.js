@@ -8,7 +8,8 @@ import BackCard from './BackCard';
 class Book extends Component {
 
     state = {
-        isFlipped: false
+        isFlipped: false,
+        likes: 0
     }
 
     handleOnClickComments = () => {
@@ -20,6 +21,12 @@ class Book extends Component {
 
     handleOnClickDelete = () => {
         this.props.deleteBook(this.props.id)
+    }
+
+    handleLike = () => {
+        this.setState( (prevState, prevProps) => ({
+            likes: prevState.likes + parseInt(prevProps.likes)
+        }))
     }
  
     render() {
@@ -33,6 +40,7 @@ class Book extends Component {
                     <Card.Footer>
                         <Button className='mb-2' variant="primary" onClick={this.handleOnClickComments} >{this.state.isFlipped ? 'Hide Comments' : 'View Comments'}</Button>
                         <Button variant="secondary" onClick={this.handleOnClickDelete} >Delete from Library</Button>
+                        <Button onClick={this.handleLike}>{this.state.likes}</Button>
                     </Card.Footer>
                 </Card>
             </div>
